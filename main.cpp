@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <memory>
-
+#include "Menu.hpp"
 #define DEBUGING_MODE_ON
 
 #define CUSTOM_COMPILER_CAECH_FOLDER (std::string)(".AutoCompiler")
@@ -38,7 +38,6 @@ int main(int argc, char *argv[])
   << "Debug: Optimize keyword - " << OPTIMIZE_LEVEL_KEYWORD << std::endl
   << "Debug: Output file keyword - " << OUTPUT_FILE_KEYWORD << std::endl
   << "Debug: System adjustment keyword - " << SYSTEM_ADJUSTMENT_KEYWORD << std::endl;
-
 #endif
 
 // creating a ptr of vector to hold all the args
@@ -48,6 +47,15 @@ int main(int argc, char *argv[])
   for (int i = 0; i < argc; i++)
   {
     args->push_back(argv[i]);
-  }
-  return 0;
+  };
+
+#ifdef DEBUGING_MODE_ON
+  // debug printing all the args
+  std::cout << "Debug: Args: " ;
+  for (std::string arg : *args)
+  {
+    std::cout << '"' << arg << "\", ";
+  }  
+  std::cout << std::endl;
+#endif
 }

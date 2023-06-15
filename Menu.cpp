@@ -1,6 +1,17 @@
 #include "Menu.hpp"
 
-void acpp::print_help()
+func acpp::GetFunc(std::string func_name)
+{
+    std::map<std::string, func>::const_iterator funcdict_itr = func_dict.find(func_name);
+    if (funcdict_itr == func_dict.end())
+    {
+        return &acpp::print_Func_not_found;
+    }
+    
+    return funcdict_itr->second;
+}
+
+t_ReturnMessage acpp::print_help(std::vector<std::string> args)
 {
     std::cout << "Options:"
 << "-n / --add-new <file_path> = add new file to the file codes to compile" << std::endl
@@ -20,4 +31,9 @@ void acpp::print_help()
 << std::endl
 << "files-list: " << std::endl
 << "showing you list of all the files that been added to the list of the files to compile" << std::endl;
+}
+
+t_ReturnMessage acpp::print_Func_not_found(std::vector<std::string> args)
+{
+    std::cerr << "Error: Unknown command - " << args[0] << std::endl;
 }
