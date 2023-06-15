@@ -1,14 +1,22 @@
 #include "Menu.hpp"
 
+
+
 func acpp::GetFunc(std::string func_name)
 {
-    std::map<std::string, func>::const_iterator funcdict_itr = func_dict.find(func_name);
-    if (funcdict_itr == func_dict.end())
+    std::map<std::string, func>::const_iterator funcdict_itr = (*func_dict).find(func_name);
+    if (funcdict_itr == (*func_dict).end())
     {
         return &acpp::print_Func_not_found;
     }
     
     return funcdict_itr->second;
+}
+
+void acpp::initMap()
+{
+    func_dict = std::make_unique<std::map<std::string, func>>();
+    (*func_dict)["help"] = &print_help;
 }
 
 t_ReturnMessage acpp::print_help(std::vector<std::string> args)
@@ -35,5 +43,5 @@ t_ReturnMessage acpp::print_help(std::vector<std::string> args)
 
 t_ReturnMessage acpp::print_Func_not_found(std::vector<std::string> args)
 {
-    std::cerr << "Error: Unknown command - " << args[0] << std::endl;
+    std::cerr << "Error: Unknown command - " << args[1] << std::endl;
 }

@@ -49,6 +49,9 @@ int main(int argc, char *argv[])
     args->push_back(argv[i]);
   };
 
+  // func func_ref = acpp::GetFunc((*args)[1]);
+  //func_ref(*args);
+
 #ifdef DEBUGING_MODE_ON
   // debug printing all the args
   std::cout << "Debug: Args: " ;
