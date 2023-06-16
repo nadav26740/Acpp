@@ -9,7 +9,7 @@ typedef char (*func)(std::vector<std::string>);
 typedef char t_ReturnMessage;
 namespace acpp
 {
-    std::unique_ptr<std::map<std::string, func>> func_dict;
+    static std::unique_ptr<std::map<std::string, func>> func_dict;
 
     void initMap();
     func GetFunc(std::string func_name);

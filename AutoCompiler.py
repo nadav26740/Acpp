@@ -27,7 +27,7 @@ SYSTEM_ADJUSTMENT_KEYWORD = "allow_System_adjustment"
 # global varibales
 Config: dict
 system_os: str
-
+ 
 
 # functions section:
 def main():
@@ -76,6 +76,9 @@ def main():
 
     elif args[0] == '-h' or args[0] == "--help":
         print_help()
+        
+    elif args[0] == "-f" or args[0] == "--flags":
+        changeflags(args)
 
     else:
         print("unknown command")
@@ -106,7 +109,13 @@ showing you list of all the files that been added to the list of the files to co
     )
 
 
-# twice Slower than gppCompileAllAtOnce!!!
+def changeflags(args : list[str]):
+    if len(args) == 1:
+        print("No flags has been send")
+        print("Current compile flag", Config[""])
+
+
+# twice Slower than gppCompileSperate!!!
 def gppCompileAllAtOnce():
     """
     just compiling all the files together into one file at once\n

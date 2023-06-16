@@ -23,10 +23,12 @@
 int main(int argc, char *argv[])
 {
   std::cout << "Starting.." << std::endl;
+  acpp::initMap();
 
   // debuging
 #ifdef DEBUGING_MODE_ON
- 
+  std::cout << "Debug: map initialized!" << std::endl;
+
   std::cout << "Debug: Cache folder - " << CUSTOM_COMPILER_CAECH_FOLDER << std::endl
   << "Debug: File_list - " << CODES_FILES_LIST_FILE << std::endl
   << "Debug: history file list - " << COMPILE_HISTORY_LIST_FILE << std::endl
@@ -60,5 +62,10 @@ int main(int argc, char *argv[])
     std::cout << '"' << arg << "\", ";
   }  
   std::cout << std::endl;
+
+  std::cout << "===================================================" << std::endl;
 #endif
+
+  func func_ref = acpp::GetFunc(args->size() > 1 ? args->at(1) : "");
+  return func_ref(*args);
 }

@@ -16,7 +16,7 @@ func acpp::GetFunc(std::string func_name)
 void acpp::initMap()
 {
     func_dict = std::make_unique<std::map<std::string, func>>();
-    (*func_dict)["help"] = &print_help;
+    (*func_dict)["--help"] = &print_help;
 }
 
 t_ReturnMessage acpp::print_help(std::vector<std::string> args)
@@ -39,9 +39,12 @@ t_ReturnMessage acpp::print_help(std::vector<std::string> args)
 << std::endl
 << "files-list: " << std::endl
 << "showing you list of all the files that been added to the list of the files to compile" << std::endl;
+    return 0;
 }
 
 t_ReturnMessage acpp::print_Func_not_found(std::vector<std::string> args)
 {
-    std::cerr << "Error: Unknown command - " << args[1] << std::endl;
+    std::cerr << "Error: Unknown command " << std::endl;
+    std::cout << "For options use flag --help" << std::endl;
+    return 7;
 }
