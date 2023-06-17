@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
             << "Debug: ======== Config keywords ========" << std::endl
             << "Debug: Optimize keyword - " << OPTIMIZE_LEVEL_KEYWORD << std::endl
             << "Debug: Output file keyword - " << OUTPUT_FILE_KEYWORD << std::endl
-            << "Debug: System adjustment keyword - " << SYSTEM_ADJUSTMENT_KEYWORD << std::endl;
+            << "Debug: System adjustment keyword - Removed" << std::endl;
 #endif
 
   // creating a ptr of vector to hold all the args

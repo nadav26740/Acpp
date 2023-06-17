@@ -6,7 +6,7 @@
 #include <memory>
 
 // included files
-#include "Config.hpp"
+#include "Classes/Config.hpp"
 
 // third party
 #include "third_party/md5_hasher.hpp"

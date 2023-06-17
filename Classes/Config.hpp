@@ -4,10 +4,10 @@
 #include <fstream>
 
 // third party libs
-#include <nlohmann/json.hpp>
+#include "../nlohmann/json.hpp"
 
 // define libs
-#include "File_Defines.hpp"
+#include "../File_Defines.hpp"
 
 namespace acpp
 {
