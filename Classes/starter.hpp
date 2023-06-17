@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include "File_Defines.hpp"
@@ -11,5 +12,5 @@ namespace acpp
     public:
         Starter();
         ~Starter();
-    }
+    };
 }

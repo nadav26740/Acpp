@@ -1,5 +1,7 @@
+#pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 
 // paths defines
 #define CUSTOM_COMPILER_CAECH_FOLDER (std::string)(".AutoCompiler")
@@ -16,7 +18,12 @@
 // keywords define
 #define OPTIMIZE_LEVEL_KEYWORD "Optimize_level"
 #define OUTPUT_FILE_KEYWORD "Output_file"
-#define SYSTEM_ADJUSTMENT_KEYWORD "allow_System_adjustment"
+// #define SYSTEM_ADJUSTMENT_KEYWORD "allow_System_adjustment" // no need for system adjustments in native
 
 // flag defines
 #define DEBUGING_MODE_ON
+
+// typedefs
+typedef char OptimizeLevel;
+typedef char (*func)(std::vector<std::string>);
+typedef char t_ReturnMessage;

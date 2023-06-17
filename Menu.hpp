@@ -5,14 +5,16 @@
 #include <vector>
 #include <memory>
 
+// included files
+#include "Config.hpp"
+
 // third party
 #include "third_party/md5_hasher.hpp"
 
 // defines
 #include "File_Defines.hpp"
 
-typedef char (*func)(std::vector<std::string>);
-typedef char t_ReturnMessage;
+
 namespace acpp
 {
     static std::unique_ptr<std::map<std::string, func>> func_dict;
