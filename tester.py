@@ -1,12 +1,19 @@
+#!/usr/bin/python3
+
 import os
 import sys
 import subprocess
 import colorama
 import time
+import platform
 
 # Defines
-COMPILE_COMMAND: str = "py AutoCompiler.py -c"
-OUTPUT_PATH: str = "release\\out.exe"
+COMPILE_COMMAND_WIN: str = "py AutoCompiler.py -c"
+OUTPUT_PATH_WIN: str = "release/out"
+
+COMPILE_COMMAND_LIN: str = "./AutoCompiler.py -c"
+OUTPUT_PATH_LIN: str = "./release/out"
+
 SPLASH_MSG = (
     colorama.Fore.CYAN
     + """
@@ -20,15 +27,32 @@ SPLASH_MSG = (
 )
 
 # global Vars
+system_os: str
 Show_output = False
-
+output_path: str
 
 def main():
     colorama.init(autoreset=True)
     args = sys.argv
+
+    global output_path
     global Show_output
+    global system_os
     global TESTS_LIST
+    
     print(SPLASH_MSG)
+    
+    # system adjustments
+    system_os = platform.system()
+    if system_os == "Windows":
+        print("System adjustments for windows...")
+        output_path = OUTPUT_PATH_WIN
+        pass
+    
+    else:
+        print("System adjustments for Linux...")
+        output_path = OUTPUT_PATH_LIN
+        pass
 
     if "-o" in args or "--ShowOutput" in args:
         Show_output = True
@@ -36,8 +60,14 @@ def main():
 
     if "-b" in args:
         #compiling
-        ret = os.system(COMPILE_COMMAND)
-        
+        if system_os == 'Windows':
+            ret = os.system(COMPILE_COMMAND_WIN)
+            pass
+
+        else:
+            ret = os.system(COMPILE_COMMAND_LIN)
+            pass
+
         if ret == 0:
             #successed to compile
             print(
@@ -110,11 +140,12 @@ def main():
 
 # tests methods
 def test_help() -> bool:
+    global output_path
     """
     testing if the help command work
     @return true if successed else return false if failed
     """
-    ret = run_cmd([OUTPUT_PATH, "--help"])
+    ret = run_cmd([output_path, "--help"])
     return ret == 0
 
 
@@ -124,9 +155,19 @@ def run_cmd(cmd: list[str]):
         pass
 
     else:
-        ret = subprocess.run(
-            args=cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True
-        ).returncode
+        if system_os == "Windows":
+            ret = subprocess.run(
+                args=cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                shell=True
+            ).returncode
+            pass
+
+        else:
+            ret = subprocess.call(args=cmd,
+                                   stdout=subprocess.DEVNULL,
+                                   stderr=subprocess.STDOUT)
         pass
 
     return ret
