@@ -13,6 +13,12 @@ int main(int argc, char *argv[])
 
   // debuging
 #ifdef DEBUGING_MODE_ON
+  #ifdef __linux__
+    std::cout << "Debug: Running on linux system" << std::endl;
+  #elif __WIN32
+    std::cout << "Debug: Running on windows system" << std::endl;
+  #endif
+
   std::cout << "Debug: map initialized!" << std::endl;
 
   std::cout << "Debug: Cache folder - " << CUSTOM_COMPILER_CAECH_FOLDER << std::endl

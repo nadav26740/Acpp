@@ -14,11 +14,10 @@
 // defines
 #include "File_Defines.hpp"
 
-
 namespace acpp
 {
     static std::unique_ptr<std::map<std::string, func>> func_dict;
-
+    
     void initMap();
     func GetFunc(std::string func_name);
     t_ReturnMessage print_help(std::vector<std::string> args);

@@ -167,7 +167,7 @@ def test_DummyConfig() -> bool:
 def run_cmd_redirected(cmd: list[str]) -> tuple:
     proc = subprocess.Popen(cmd,
                             stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT,
+                            stderr=subprocess.STDOUT
                         )
 
     ret_code = proc.wait()

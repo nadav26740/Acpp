@@ -1,19 +1,11 @@
 #include "Menu.hpp"
 
-func acpp::GetFunc(std::string func_name)
-{
-    std::map<std::string, func>::const_iterator funcdict_itr = (*func_dict).find(func_name);
-    if (funcdict_itr == (*func_dict).end())
-    {
-        return &acpp::print_Func_not_found;
-    }
-
-    return funcdict_itr->second;
-}
-
+// initlizing to the map the functions keywords and functions 
 void acpp::initMap()
 {
     func_dict = std::make_unique<std::map<std::string, func>>();
+
+    // here is all the functions keywords and their func pointer
     (*func_dict)["--help"] = &print_help;
     (*func_dict)["--dummy_config"] = &dummy_ShowConfig;
 
@@ -27,6 +19,20 @@ void acpp::initMap()
 #endif
 }
 
+// getting keyword and checking if the keyword exists in map
+// if exists return the func pointer
+func acpp::GetFunc(std::string func_name)
+{
+    std::map<std::string, func>::const_iterator funcdict_itr = (*func_dict).find(func_name);
+    if (funcdict_itr == (*func_dict).end())
+    {
+        return &acpp::print_Func_not_found;
+    }
+
+    return funcdict_itr->second;
+}
+
+// printing the help
 t_ReturnMessage acpp::print_help(std::vector<std::string> args)
 {
     std::cout << "Options:"
@@ -50,6 +56,7 @@ t_ReturnMessage acpp::print_help(std::vector<std::string> args)
     return 0;
 }
 
+// Error function
 t_ReturnMessage acpp::print_Func_not_found(std::vector<std::string> args)
 {
     std::cerr << "Error: Unknown command " << std::endl;
@@ -57,6 +64,7 @@ t_ReturnMessage acpp::print_Func_not_found(std::vector<std::string> args)
     return 7;
 }
 
+// printing dummy to check that the config printing as the format
 t_ReturnMessage acpp::dummy_ShowConfig(std::vector<std::string> args)
 {
     std::cout << "Test" << std::endl;    
