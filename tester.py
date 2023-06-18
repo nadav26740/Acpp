@@ -140,13 +140,43 @@ def main():
 
 # tests methods
 def test_help() -> bool:
-    global output_path
     """
     testing if the help command work
     @return true if successed else return false if failed
     """
+    global output_path
     ret = run_cmd([output_path, "--help"])
     return ret == 0
+
+
+def test_DummyConfig() -> bool:
+    """
+    Checking if the dummy config is returning the config right
+    """
+    global output_path
+    ret_code, output = run_cmd_redirected([output_path, "--dummy_config"] )
+
+    if ret_code != 0:
+        return False
+    
+    # TODO: CHECK THE OUTPUT BITCH
+
+    return True
+
+
+def run_cmd_redirected(cmd: list[str]) -> tuple:
+    proc = subprocess.Popen(cmd,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.STDOUT,
+                        )
+
+    ret_code = proc.wait()
+    output = proc.stdout.read()
+
+    if Show_output:
+        print(output)
+    
+    return (ret_code, output)
 
 
 def run_cmd(cmd: list[str]):
@@ -174,7 +204,7 @@ def run_cmd(cmd: list[str]):
 
 
 # tests list
-TESTS_LIST = {"Help Test": test_help}
+TESTS_LIST = {"Help Test": test_help, "Test Dummy_Config": test_DummyConfig}
 
 if __name__ == "__main__":
     main()

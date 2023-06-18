@@ -23,5 +23,5 @@ namespace acpp
     func GetFunc(std::string func_name);
     t_ReturnMessage print_help(std::vector<std::string> args);
     t_ReturnMessage print_Func_not_found(std::vector<std::string> args);
-
+    t_ReturnMessage dummy_ShowConfig(std::vector<std::string> args);
 }

@@ -15,6 +15,7 @@ void acpp::initMap()
 {
     func_dict = std::make_unique<std::map<std::string, func>>();
     (*func_dict)["--help"] = &print_help;
+    (*func_dict)["--dummy_config"] = &dummy_ShowConfig;
 
     // testing md5
  #ifdef DEBUGING_MODE_ON
@@ -54,4 +55,10 @@ t_ReturnMessage acpp::print_Func_not_found(std::vector<std::string> args)
     std::cerr << "Error: Unknown command " << std::endl;
     std::cout << "For options use flag --help" << std::endl;
     return 7;
+}
+
+t_ReturnMessage acpp::dummy_ShowConfig(std::vector<std::string> args)
+{
+    std::cout << "Test" << std::endl;    
+    return 0;
 }
