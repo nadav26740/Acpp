@@ -23,7 +23,19 @@
 // flag defines
 #define DEBUGING_MODE_ON
 
+// enums 
+enum Return_codes : char
+{
+    SUCCESS = 0,
+    FAILED_TO_RUN,
+    RUN_TIME_ERROR,
+    TIMEOUT,
+    UNKNOWN_ERROR,
+    ID_ERROR,
+    LOW_ON_ARGS,
+    UNDETIFINED_COMMAND
+};
+
 // typedefs
 typedef char OptimizeLevel;
-typedef char (*func)(std::vector<std::string>);
-typedef char t_ReturnMessage;
+typedef Return_codes (*func)(std::vector<std::string>);

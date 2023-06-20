@@ -19,7 +19,6 @@ namespace acpp
         std::string Output_file;
         int optimize_level;
         bool DebugMode;
-        bool allow_System_adjustment;
     };
 
     struct Config_path
@@ -30,15 +29,14 @@ namespace acpp
     class Config
     {
     private:
-        std::string m_Output_file;
-        OptimizeLevel m_OptimizeLevel;
-        void ExtractDataFromJson();
+        Config_json data;
+        template<class T> void ExtractDataFromJson(T);
 
     public:
         Config(Config_path File_path); // reading the config data from file path
         Config(std::string Json_data); // creating config from json data
         Config(); // Creating default config
         ~Config(); // destractor
-
+        const std::string to_string();
     };
 }
