@@ -1,6 +1,6 @@
 #include "Menu.hpp"
 
-// initlizing to the map the functions keywords and functions 
+// initlizing to the map the functions keywords and functions
 void acpp::initMap()
 {
     func_dict = std::make_unique<std::map<std::string, func>>();
@@ -10,7 +10,7 @@ void acpp::initMap()
     (*func_dict)["--dummy_config"] = &dummy_ShowConfig;
 
     // testing md5
- #ifdef DEBUGING_MODE_ON
+#ifdef DEBUGING_MODE_ON
     if (GetMD5String("Test") != "0cbc6611f5540bd0809a388dc95a615b")
     {
         throw std::string("Error md5 Failed");
