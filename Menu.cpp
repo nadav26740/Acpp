@@ -67,7 +67,7 @@ Return_codes acpp::print_Func_not_found(std::vector<std::string> args)
 // printing dummy to check that the config printing as the format
 Return_codes acpp::dummy_ShowConfig(std::vector<std::string> args)
 {
-    acpp::Config dummy_config("{\"Output_file\":\"release/out\", \"Optimize_level\": 3, \"allow_System_adjustment\": \"True\"}");    
+    acpp::Config dummy_config("{\"Output_file\":\"release/out\", \"Optimize_level\": 3, \"allow_System_adjustment\": \"True\"}");
     std::cout << dummy_config.to_string() << std::endl;
     return Return_codes::SUCCESS;
 }

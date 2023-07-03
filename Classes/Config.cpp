@@ -30,8 +30,9 @@ acpp::Config::~Config()
 const std::string acpp::Config::to_string()
 {
     std::string str = " ";
-    str = "Output: " + this->data.Output_file + 
-    " Optimize Level: " + std::to_string(this->data.optimize_level);
+    str = "{\"Output\": \"" + this->data.Output_file + 
+    "\", \"Optimize Level\": \"" + std::to_string(this->data.optimize_level)
+     + "\"}";
 
     return str;
 }

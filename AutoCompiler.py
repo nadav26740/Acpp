@@ -27,7 +27,7 @@ SYSTEM_ADJUSTMENT_KEYWORD = "allow_System_adjustment"
 # global varibales
 Config: dict
 system_os: str
- 
+
 
 # functions section:
 def main():
@@ -74,9 +74,9 @@ def main():
     elif args[0] == "-l" or args[0] == "--files-list":
         sys.exit(print_files_list((len(args) > 1 and args[1] == "-a")))
 
-    elif args[0] == '-h' or args[0] == "--help":
+    elif args[0] == "-h" or args[0] == "--help":
         print_help()
-        
+
     elif args[0] == "-f" or args[0] == "--flags":
         changeflags(args)
 
@@ -109,7 +109,7 @@ showing you list of all the files that been added to the list of the files to co
     )
 
 
-def changeflags(args : list[str]):
+def changeflags(args: list[str]):
     if len(args) == 1:
         print("No flags has been send")
         print("Current compile flag", Config[""])
