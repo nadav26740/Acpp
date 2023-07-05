@@ -5,12 +5,12 @@
 
 // paths defines
 #define CUSTOM_COMPILER_CAECH_FOLDER (std::string)(".AutoCompiler")
-#define CODES_FILES_LIST_FILE (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/file_to_compile.dat")
 #define COMPILE_HISTORY_LIST_FILE (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/compiled_files_History.dat")
-#define COMPILE_CONFIG (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/compiled_links.dat")
-#define COMPILE_CACHE (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/cache_objects")
-#define FILES_TO_CHECK (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/FilesToCheck.dat")
 #define INCLUDES_IN_FILES_LIST (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/includesInFiles.dat")
+#define CODES_FILES_LIST_FILE (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/file_to_compile.dat")
+#define COMPILE_CONFIG (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/compiled_links.dat")
+#define FILES_TO_CHECK (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/FilesToCheck.dat")
+#define COMPILE_CACHE (std::string)(CUSTOM_COMPILER_CAECH_FOLDER + "/cache_objects")
 
 // files types define
 #define OBJECT_FILE_ENDING ".obj"

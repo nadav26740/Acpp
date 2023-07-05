@@ -7,6 +7,7 @@
 
 // included files
 #include "Classes/Config.hpp"
+#include "Classes/file_Assists.hpp"
 
 // third party
 #include "third_party/md5_hasher.hpp"

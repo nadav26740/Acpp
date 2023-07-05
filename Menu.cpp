@@ -69,5 +69,9 @@ Return_codes acpp::dummy_ShowConfig(std::vector<std::string> args)
 {
     acpp::Config dummy_config("{\"Output_file\":\"release/out\", \"Optimize_level\": 3, \"allow_System_adjustment\": \"True\"}");
     std::cout << dummy_config.to_string() << std::endl;
+
+    ACPP::file_assists::File_to_MD5("Menu.hpp");
+
     return Return_codes::SUCCESS;
 }
+

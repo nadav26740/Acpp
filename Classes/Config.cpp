@@ -1,6 +1,6 @@
 #include "Config.hpp"
 
-template<class T>
+template <class T>
 void acpp::Config::ExtractDataFromJson(T js)
 {
     json json_Data = json::parse(js);
@@ -29,10 +29,13 @@ acpp::Config::~Config()
 
 const std::string acpp::Config::to_string()
 {
-    std::string str = " ";
-    str = "{\"Output\": \"" + this->data.Output_file + 
-    "\", \"Optimize Level\": \"" + std::to_string(this->data.optimize_level)
-     + "\"}";
+    // str = "{\"Output\": \"" + this->data.Output_file +
+    // "\", \"Optimize Level\": \"" + std::to_string(this->data.optimize_level)
+    //  + "\"}";
 
-    return str;
+    json js;
+    js[OUTPUT_FILE_KEYWORD] = this->data.Output_file;
+    js[OPTIMIZE_LEVEL_KEYWORD] = this->data.optimize_level;
+
+    return js.dump();
 }
