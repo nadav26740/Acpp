@@ -90,14 +90,14 @@ def print_help():
         """Options:
 -n / --add-new <file_path> = add new file to the file codes to compile
 -c / --Compile = compiling all the files
--o / --Compile-optimized = Compile all the files with optimize
--s / --set-output-file <path>
+-o / --Compile-optimized = Compile all the files with optimize [TODO]
+-s / --set-output-file <path> [TODO]
 -l / --files-list = get header files list
             
-compile options:
--n / --no-linker = compile without using linker file compile all at once
--f / --force = force compiling all the files
--r / --rebuild-objects = rebuild all the objects
+compile options (-c <option>):
+-n / --no-linker = compile without using linker file compile all at once 
+-f / --force = force compiling all the files 
+-r / --rebuild-objects = rebuild all the objects 
 can't use force compile and no-linker at the same time the no-linker will get canceled
 
 add-new options:
